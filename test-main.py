@@ -7,15 +7,16 @@ from pytube.cli import on_progress #this module contains the built in progress b
 #reset_color = '\033[39m'
 
 
-
-#i = input()
-i = "www.youtube.com/watch?v=31crA53Dgu0"
+print("Enter youtuve url:")
+i = input()
+#i = "www.youtube.com/watch?v=31crA53Dgu0"
 
 print(f'URL:{i}')
 yt = YouTube(i,on_progress_callback=on_progress)
 
 title = yt.title+".mp4"
-print(fuchsia + 'Video Title :',title,'\n')
+#print(fuchsia + 'Video Title :',title,'\n')
+print( 'Video Title :',title,'\n')
 print(yt.thumbnail_url)
 
 # Get downloadable video+audio listing
@@ -28,7 +29,7 @@ print(f"Video with audio streaming file:\n")
 for mp4 in video:
     print(mp4)
 
-print(f"\nAudio only streaming file:\n")
+print(f"\n\nAudio only streaming file:\n")
 for mp3 in audio:
     print(mp3)
 print(f"\n")
@@ -52,6 +53,6 @@ itag = 22 # to get 720p
 strm = yt.streams.get_by_itag(22)
 print("Downlod (Video 720p) url:",strm.url,"\n")
 
-strm = yt.streams.get_by_itag(140)
-print("Downlod (OnlyAudio) url:",strm.url,"\n" + reset_color)
+#strm = yt.streams.get_by_itag(140)
+#print("Downlod (OnlyAudio) url:",strm.url,"\n" + reset_color)
 strm.download()
